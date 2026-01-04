@@ -1,11 +1,12 @@
-#include "stdio.h"
+#include <stdio.h>
 #include "array_utils.h"
 
 int main(void) {
-    int array[MAX_SIZE];
+    int array[MAX_SIZE]; // MAX_SIZE is defined on array_utils.h
     int size = 0;
     int choise, value, position;
 
+    // repeat until user type 0
     while(1) {
         printf("-------------------------");
         printf("\n1. Print array");
@@ -27,7 +28,7 @@ int main(void) {
             case 3:
                 printf("\nWrite a value to add: "); scanf("%d", &value);
                 printf("\nWrite a position to write that value: "); scanf("%d", &position);
-                insert_at_position(array, &size, value, position - 1);
+                insert_at_position(array, &size, value, position - 1); // -1 for index human friendly
                 break;
             case 0:
                 return 0;

@@ -2,16 +2,25 @@
 #include "array_utils.h"
 
 void print_array(int arr[], int size) {
-    if(size == 0) return;
+    // print empty array if array is empty
+    if(size == 0) {
+        printf("[ ]");
+        return;
+    }
 
     printf("[ ");
     for(int i = 0; i < size; i++) {
-        printf("%d - ", arr[i]);
+        printf("%d", arr[i]);
+        // slash only if isnt the last number
+        if(i < size - 1){
+            printf(" - ");
+        }
     }
     printf("]\n");
 }
 
 void insert_at_end(int arr[], int *size, int value) {
+    // verification for prevent buffer overflow
     if(*size == MAX_SIZE) {
         printf("Error: Array FULL\n");
         return;
@@ -21,11 +30,17 @@ void insert_at_end(int arr[], int *size, int value) {
 }
 
 void insert_at_position(int arr[], int *size, int value, int position) {
+    // verification for prevent buffer overflow
     if(*size == MAX_SIZE) {
         printf("Error: Array FULL\n");
         return;
     }
-    if(position < 0 || *size < position) return;
+    // verification valid position
+    if(position < 0 || *size < position) {
+        printf("Invalid position.");   
+        return;
+    }
+    // move all number one index to right and add the new one
     for(int i = *size; i > position; i--) {
         arr[i] = arr[i - 1];
     }
