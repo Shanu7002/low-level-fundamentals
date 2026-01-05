@@ -9,7 +9,7 @@ int main(void) {
         return 1;
     }
     
-    int choise, value, position;
+    int choice, value, position;
 
     // repeat until user type 0
     while(1) {
@@ -19,11 +19,11 @@ int main(void) {
         printf("\n3. Add Value at Position");
         printf("\n4. Remove at Position");
         printf("\n0. Exit and Free Memory");
-        printf("\nYour choise: ");
-        scanf("%d", &choise);
+        printf("\nYour choice: ");
+        scanf("%d", &choice);
         printf("-------------------------");
 
-        switch (choise) {
+        switch (choice) {
             case 1:
                 printf("\n");
                 print_array(arr);
@@ -45,7 +45,7 @@ int main(void) {
                 delete_array(arr);
                 return 0;
             default:
-                printf("\nInvalid Choise.\n");
+                printf("\nInvalid Choice.\n");
         }
     }
 }
