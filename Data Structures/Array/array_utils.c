@@ -16,7 +16,7 @@ void print_array(int arr[], int size) {
             printf(" - ");
         }
     }
-    printf("]\n");
+    printf(" ]\n");
 }
 
 void insert_at_end(int arr[], int *size, int value) {
@@ -36,8 +36,8 @@ void insert_at_position(int arr[], int *size, int value, int position) {
         return;
     }
     // verification valid position
-    if(position < 0 || *size < position) {
-        printf("Invalid position.");   
+    if(position < 0 || position > *size) {
+        printf("Invalid position.\n");   
         return;
     }
     // move all number one index to right and add the new one
@@ -46,4 +46,16 @@ void insert_at_position(int arr[], int *size, int value, int position) {
     }
     arr[position] = value;
     (*size)++;
+}
+
+void delete_at_position(int arr[], int *size, int position) {
+    if(position < 0 || position > *size) {
+        printf("Invalid position.\n");
+        return;
+    }
+
+    for(int i = position; i < *size; i++) {
+        arr[i] = arr[i + 1];
+    }
+    (*size)--;
 }

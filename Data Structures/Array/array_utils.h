@@ -6,5 +6,6 @@
 void print_array(int arr[], int size);
 void insert_at_end(int arr[], int *size, int value);
 void insert_at_position(int arr[], int *size, int value, int position);
+void delete_at_position(int arr[], int *size, int position);
 
 #endif

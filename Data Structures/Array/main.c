@@ -12,6 +12,7 @@ int main(void) {
         printf("\n1. Print array");
         printf("\n2. Add Value at End");
         printf("\n3. Add Value at Position");
+        printf("\n4. Remove at Position");
         printf("\nYour choise: ");
         scanf("%d", &choise);
         printf("-------------------------");
@@ -29,6 +30,10 @@ int main(void) {
                 printf("\nWrite a value to add: "); scanf("%d", &value);
                 printf("\nWrite a position to write that value: "); scanf("%d", &position);
                 insert_at_position(array, &size, value, position - 1); // -1 for index human friendly
+                break;
+            case 4:
+                printf("\nSelect a position to delete: "); scanf("%d", &position);
+                delete_at_position(array, &size, position - 1); // -1 for index human friendly
                 break;
             case 0:
                 return 0;
