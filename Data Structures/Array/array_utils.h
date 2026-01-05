@@ -14,5 +14,6 @@ void print_array(DynamicArray *arr);
 void insert_at_end(DynamicArray *arr, int value);
 void insert_at_position(DynamicArray *arr, int value, int position);
 void delete_at_position(DynamicArray *arr, int position);
+void delete_array(DynamicArray *arr);
 
 #endif

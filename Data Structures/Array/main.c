@@ -42,9 +42,10 @@ int main(void) {
                 delete_at_position(arr, position - 1); // -1 for index human friendly
                 break;
             case 0:
+                delete_array(arr);
                 return 0;
             default:
-                printf("\nInvalid.\n");
+                printf("\nInvalid Choise.\n");
         }
     }
 }

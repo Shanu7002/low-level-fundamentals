@@ -30,6 +30,7 @@ void print_array(DynamicArray *arr) {
         
     }
     printf(" ]\n");
+    printf("(Size: %d, Cap: %d)\n", arr->size, arr->capacity);
 }
 
 void insert_at_end(DynamicArray *arr, int value) {
@@ -81,4 +82,13 @@ void delete_at_position(DynamicArray *arr,  int position) {
     arr->size--;
 
     arr->data[arr->size] = 0;
+}
+
+void delete_array(DynamicArray *arr) {
+    if(arr) {
+        free(arr->data);
+        free(arr);
+        printf("Array Sucessfully Deleted and Free");
+    }
+    printf("Empty array cannot be deleted.");
 }
