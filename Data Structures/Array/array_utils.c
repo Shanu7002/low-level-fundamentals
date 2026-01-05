@@ -51,9 +51,8 @@ void insert_at_end(DynamicArray *arr, int value) {
 }
 
 void insert_at_position(DynamicArray *arr, int value, int position) {
-    // verification for prevent buffer overflow
-    if(arr->size == MAX_SIZE) {
-        printf("Error: Array FULL\n");
+    if(position == arr->size + 1) {
+        insert_at_end(arr, value);
         return;
     }
     // verification valid position
@@ -62,8 +61,21 @@ void insert_at_position(DynamicArray *arr, int value, int position) {
         return;
     }
     // move all number one index to right and add the new one
+    if(arr->size == arr->capacity) {
+        int newCapacity = arr->capacity * 2;
+        int *newData = (int*)realloc(arr->data, newCapacity * sizeof(int));
+
+        if(!newData) {
+            printf("Critical Error: Memory Reallocation Failed.");
+            return;
+        }
+
+        arr->data = newData;
+        arr->capacity = newCapacity;
+    }
+
     for(int i = arr->size; i > position; i--) {
-        arr[i] = arr[i - 1];
+        arr->data[i] = arr->data[i - 1];
     }
     arr->data[position] = value;
     arr->size++;
